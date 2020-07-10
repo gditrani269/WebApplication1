@@ -39,3 +39,9 @@ oc process -f WebApplication1/openshift/configs/openshift.yaml -n ser -p SERVICE
 
 # Start first build
 oc start-build justdoit -n ser
+
+
+
+
+# Install Deploy configs
+oc process -f WebApplication1/openshift/configs/dev/deployments.yaml -n ser -p PROJECT_NAME=justdoit -p SERVICE_NAME=justdoit -p ENVIRONMENT=dev | oc create -f - -n ser
