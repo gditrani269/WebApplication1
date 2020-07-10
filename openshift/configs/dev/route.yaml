@@ -1,0 +1,72 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  annotations:
+    openshift.io/host.generated: 'true'
+  selfLink: /apis/route.openshift.io/v1/namespaces/ser/routes/justdoit
+  resourceVersion: '418190215'
+  name: justdoit
+  uid: 15fd1ca5-e7d9-405b-a2c3-429968ae7ec0
+  creationTimestamp: '2020-07-10T00:32:09Z'
+  managedFields:
+    - manager: Mozilla
+      operation: Update
+      apiVersion: route.openshift.io/v1
+      time: '2020-07-10T00:32:09Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:app.kubernetes.io/component': {}
+            'f:app.kubernetes.io/instance': {}
+            'f:app.kubernetes.io/name': {}
+            'f:app.kubernetes.io/part-of': {}
+            'f:app.openshift.io/runtime': {}
+            'f:app.openshift.io/runtime-version': {}
+        'f:spec':
+          'f:port':
+            .: {}
+            'f:targetPort': {}
+          'f:to':
+            'f:kind': {}
+            'f:name': {}
+            'f:weight': {}
+          'f:wildcardPolicy': {}
+    - manager: openshift-router
+      operation: Update
+      apiVersion: route.openshift.io/v1
+      time: '2020-07-10T00:32:10Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:ingress': {}
+  namespace: ser
+  labels:
+    app: justdoit
+    app.kubernetes.io/component: justdoit
+    app.kubernetes.io/instance: justdoit
+    app.kubernetes.io/name: dotnet
+    app.kubernetes.io/part-of: dotnet-app
+    app.openshift.io/runtime: dotnet
+    app.openshift.io/runtime-version: '2.2'
+spec:
+  host: justdoit-ser.apps.us-west-1.starter.openshift-online.com
+  to:
+    kind: Service
+    name: justdoit
+    weight: 100
+  port:
+    targetPort: 8080-tcp
+  wildcardPolicy: None
+status:
+  ingress:
+    - host: justdoit-ser.apps.us-west-1.starter.openshift-online.com
+      routerName: default
+      conditions:
+        - type: Admitted
+          status: 'True'
+          lastTransitionTime: '2020-07-10T00:32:10Z'
+      wildcardPolicy: None
+      routerCanonicalHostname: apps.us-west-1.starter.openshift-online.com

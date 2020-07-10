@@ -1,0 +1,116 @@
+kind: BuildConfig
+apiVersion: build.openshift.io/v1
+metadata:
+  annotations:
+    app.openshift.io/vcs-ref: netcore3.2
+    app.openshift.io/vcs-uri: 'https://github.com/gditrani269/WebApplication1.git'
+    openshift.io/generated-by: OpenShiftWebConsole
+  selfLink: /apis/build.openshift.io/v1/namespaces/ser/buildconfigs/justdoit
+  resourceVersion: '418442985'
+  name: justdoit
+  uid: d79d0513-84dd-42fb-8cea-557ba92d77d6
+  creationTimestamp: '2020-07-10T00:32:08Z'
+  managedFields:
+    - manager: Mozilla
+      operation: Update
+      apiVersion: build.openshift.io/v1
+      time: '2020-07-10T00:34:12Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:app.openshift.io/vcs-ref': {}
+            'f:app.openshift.io/vcs-uri': {}
+            'f:openshift.io/generated-by': {}
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:app.kubernetes.io/component': {}
+            'f:app.kubernetes.io/instance': {}
+            'f:app.kubernetes.io/name': {}
+            'f:app.kubernetes.io/part-of': {}
+            'f:app.openshift.io/runtime': {}
+            'f:app.openshift.io/runtime-version': {}
+        'f:spec':
+          'f:output':
+            'f:to':
+              .: {}
+              'f:kind': {}
+              'f:name': {}
+          'f:runPolicy': {}
+          'f:source':
+            'f:contextDir': {}
+            'f:git':
+              .: {}
+              'f:ref': {}
+              'f:uri': {}
+            'f:type': {}
+          'f:strategy':
+            'f:sourceStrategy':
+              .: {}
+              'f:from':
+                .: {}
+                'f:kind': {}
+                'f:name': {}
+                'f:namespace': {}
+            'f:type': {}
+    - manager: openshift-apiserver
+      operation: Update
+      apiVersion: build.openshift.io/v1
+      time: '2020-07-10T06:16:46Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:spec':
+          'f:triggers': {}
+        'f:status':
+          'f:lastVersion': {}
+  namespace: ser
+  labels:
+    app: justdoit
+    app.kubernetes.io/component: justdoit
+    app.kubernetes.io/instance: justdoit
+    app.kubernetes.io/name: dotnet
+    app.kubernetes.io/part-of: dotnet-app
+    app.openshift.io/runtime: dotnet
+    app.openshift.io/runtime-version: '2.2'
+spec:
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'justdoit:latest'
+  resources: {}
+  successfulBuildsHistoryLimit: 5
+  failedBuildsHistoryLimit: 5
+  strategy:
+    type: Source
+    sourceStrategy:
+      from:
+        kind: ImageStreamTag
+        namespace: openshift
+        name: 'dotnet:2.2'
+  postCommit: {}
+  source:
+    type: Git
+    git:
+      uri: 'https://github.com/gditrani269/WebApplication1.git'
+      ref: netcore3.1
+    contextDir: WebApplication1
+  triggers:
+    - type: Generic
+      generic:
+        secretReference:
+          name: justdoit-generic-webhook-secret
+    - type: GitHub
+      github:
+        secretReference:
+          name: justdoit-github-webhook-secret
+    - type: ImageChange
+      imageChange:
+        lastTriggeredImageID: >-
+          image-registry.openshift-image-registry.svc:5000/openshift/dotnet@sha256:73237ba08fab93d93075551a95b9e0047e765b0285d98d2fbffb9bbd691c4512
+    - type: ConfigChange
+  runPolicy: Serial
+status:
+  lastVersion: 7

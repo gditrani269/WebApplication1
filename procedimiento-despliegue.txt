@@ -1,0 +1,41 @@
+cd D:\n\Openshift
+oc login --token=LV_dvelR4EGZHibVL2EGnl_E8Pljb0iW4OVzmjkZ_Vs --server=https://api.us-west-1.starter.openshift-online.com:6443
+
+
+clonar el branch
+
+git clone -b netcore3.1 --single-branch https://github.com/gditrani269/WebApplication1.git
+
+ingresar a la carpeta del proyecto:
+
+cd WebApplication1
+
+crear carpeta openshift
+
+ingresar a la carpeta openshift
+
+crear la carpeta configs
+
+ingresar a la carpeta configs
+
+crear el archivo openshift.yaml		(exportacion del build config de OS)
+crear el archivo image-streams.yaml (exportacion del image Stream de OS)
+
+Despliegue de service, routes y deployment
+Dentro de la carpeta configs crear la carpeta: dev
+ingresar a la carpeta dev.
+
+crear el archivo service.yaml
+crear el archivo route.yaml
+crear el archivo deployments.yaml
+
+
+
+# Install Image Streams
+oc process -f WebApplication1/openshift/configs/image-streams.yaml -n ser -p SERVICE_NAME=justdoit | oc create -f - -n ser
+
+# Install Build Configs
+oc process -f WebApplication1/openshift/configs/openshift.yaml -n ser -p SERVICE_NAME=justdoit -p SERVICE_GIT_URL=https://github.com/gditrani269/WebApplication1.git | oc create -f - -n ser
+
+# Start first build
+oc start-build justdoit -n ser

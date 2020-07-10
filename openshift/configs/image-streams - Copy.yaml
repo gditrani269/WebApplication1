@@ -1,0 +1,90 @@
+kind: ImageStream
+apiVersion: image.openshift.io/v1
+metadata:
+  annotations:
+    app.openshift.io/vcs-ref: netcore3.2
+    app.openshift.io/vcs-uri: 'https://github.com/gditrani269/WebApplication1.git'
+    openshift.io/generated-by: OpenShiftWebConsole
+  selfLink: /apis/image.openshift.io/v1/namespaces/ser/imagestreams/justdoit
+  resourceVersion: '418444292'
+  name: justdoit
+  uid: aaaf3624-5d8b-40ba-8c83-1243d088de88
+  creationTimestamp: '2020-07-10T00:32:08Z'
+  generation: 1
+  managedFields:
+    - manager: Mozilla
+      operation: Update
+      apiVersion: image.openshift.io/v1
+      time: '2020-07-10T00:32:08Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:app.openshift.io/vcs-ref': {}
+            'f:app.openshift.io/vcs-uri': {}
+            'f:openshift.io/generated-by': {}
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:app.kubernetes.io/component': {}
+            'f:app.kubernetes.io/instance': {}
+            'f:app.kubernetes.io/name': {}
+            'f:app.kubernetes.io/part-of': {}
+            'f:app.openshift.io/runtime': {}
+            'f:app.openshift.io/runtime-version': {}
+  namespace: ser
+  labels:
+    app: justdoit
+    app.kubernetes.io/component: justdoit
+    app.kubernetes.io/instance: justdoit
+    app.kubernetes.io/name: dotnet
+    app.kubernetes.io/part-of: dotnet-app
+    app.openshift.io/runtime: dotnet
+    app.openshift.io/runtime-version: '2.2'
+spec:
+  lookupPolicy:
+    local: false
+status:
+  dockerImageRepository: 'image-registry.openshift-image-registry.svc:5000/ser/justdoit'
+  publicDockerImageRepository: >-
+    default-route-openshift-image-registry.apps.us-west-1.starter.openshift-online.com/ser/justdoit
+  tags:
+    - tag: latest
+      items:
+        - created: '2020-07-10T06:18:06Z'
+          dockerImageReference: >-
+            image-registry.openshift-image-registry.svc:5000/ser/justdoit@sha256:9f51d6622cdab881a837f2926160487d9ca6387bf415bd2873e4c5e83564d0e5
+          image: >-
+            sha256:9f51d6622cdab881a837f2926160487d9ca6387bf415bd2873e4c5e83564d0e5
+          generation: 1
+        - created: '2020-07-10T01:12:37Z'
+          dockerImageReference: >-
+            image-registry.openshift-image-registry.svc:5000/ser/justdoit@sha256:e396e785f3cba6ecc26ad5176c91d0a477a0b3c15715f43dd45cc969dfdf44fb
+          image: >-
+            sha256:e396e785f3cba6ecc26ad5176c91d0a477a0b3c15715f43dd45cc969dfdf44fb
+          generation: 1
+        - created: '2020-07-10T01:08:58Z'
+          dockerImageReference: >-
+            image-registry.openshift-image-registry.svc:5000/ser/justdoit@sha256:d6a56a87c1609974417b9f51d4ed290b2227bebabd5438144b73dec6d59171c2
+          image: >-
+            sha256:d6a56a87c1609974417b9f51d4ed290b2227bebabd5438144b73dec6d59171c2
+          generation: 1
+        - created: '2020-07-10T01:06:00Z'
+          dockerImageReference: >-
+            image-registry.openshift-image-registry.svc:5000/ser/justdoit@sha256:83402c3e93d5fa4d1fd7f10189a22a2f15993de6723ab88ea87ef0561fd7e304
+          image: >-
+            sha256:83402c3e93d5fa4d1fd7f10189a22a2f15993de6723ab88ea87ef0561fd7e304
+          generation: 1
+        - created: '2020-07-10T01:04:24Z'
+          dockerImageReference: >-
+            image-registry.openshift-image-registry.svc:5000/ser/justdoit@sha256:fcd315db9721d1a863dd361491a5d4187a3c0406255ddf422ab807443694993f
+          image: >-
+            sha256:fcd315db9721d1a863dd361491a5d4187a3c0406255ddf422ab807443694993f
+          generation: 1
+        - created: '2020-07-10T00:35:38Z'
+          dockerImageReference: >-
+            image-registry.openshift-image-registry.svc:5000/ser/justdoit@sha256:ec0a30f9320b068cbac6f40f94533178a08878a6ca1d40fc69dbe5cf0a285df8
+          image: >-
+            sha256:ec0a30f9320b068cbac6f40f94533178a08878a6ca1d40fc69dbe5cf0a285df8
+          generation: 1
